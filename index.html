@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circular Animation</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        /* Define keyframes for circular animation */
+        @keyframes circular-animation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Apply animation to circular-animation class */
+        .circular-animation {
+            width: 40%;
+            animation: circular-animation 5s linear infinite; /* Adjust duration and timing function as needed */
+        }
+
+        /* Hide overflow to stop scrolling */
+        body.circular-animation-active {
+            overflow: hidden;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="images/imag1.png" alt="" class="circular-animation">
+        <img src="images/Ellipse 264.png" alt=""  style="margin: 5% 0% 7% -33%; width: 25%;">
+        <img src="images/Login-page-img2.png" alt=""  style="margin: 0% 0% 11% -25%; width: 25%;">
+    </div>
+
+    <script>
+        // JavaScript to add class when animation starts and remove it when it ends
+        const elements = document.querySelectorAll('.circular-animation');
+        elements.forEach(element => {
+            element.addEventListener('animationstart', () => {
+                document.body.classList.add('circular-animation-active');
+            });
+            element.addEventListener('animationend', () => {
+                document.body.classList.remove('circular-animation-active');
+            });
+        });
+    </script>
+</body>
+</html>
